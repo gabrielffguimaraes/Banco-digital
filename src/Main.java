@@ -1,14 +1,33 @@
+import exception.ValidacoesBancariasExceptions;
+
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
-        Cliente venilton = new Cliente();
-        venilton.setNome("Venilton");
+        try {
+            Cliente venilton = new Cliente();
+            venilton.setNome("Venilton");
 
-        Conta corrente = new ContaCorrente(venilton);
-        corrente.depositar(200);
-        Conta poupanca = new ContaCorrente(venilton);
+            Conta corrente = new ContaCorrente(venilton);
+            Conta poupanca = new ContaPoupanca(venilton);
 
-        corrente.transferir(50,poupanca);
-        corrente.imprimirExtrato();
-        poupanca.imprimirExtrato();
+
+            corrente.depositar(800);
+            corrente.transferir(400,poupanca);
+
+            poupanca.sacar(255.25);
+
+            corrente.imprimirExtrato();
+            poupanca.imprimirExtrato();
+
+
+            corrente.historicoBancario();
+            poupanca.historicoBancario();
+        } catch (ValidacoesBancariasExceptions e) {
+            JOptionPane.showMessageDialog(null,e.getMessage());
+            e.printStackTrace();
+        }
+
+
     }
 }
