@@ -8,7 +8,7 @@ Implementar melhorias para o funcionamento do mesmo .
 
 # Melhorias
 
-melhorias aplicadas
+Melhorias aplicadas
 
 * Adicional de cartao de credito apenas para contas corrente .
 * Controle e validações ao realizar operações basicas como sacar , transferir depositar etc .
